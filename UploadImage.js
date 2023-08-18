@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
 const ImageUpload = ({ photoUri, onUpload }) => {
   const handleUpload = () => {
@@ -9,19 +9,24 @@ const ImageUpload = ({ photoUri, onUpload }) => {
   };
 
   return (
-    <TouchableOpacity
-      style={{
-        alignSelf: "flex-end",
-        alignItems: "center",
-        margin: 20,
-      }}
-      onPress={handleUpload}
-    >
-      <Text style={{ fontSize: 18, marginBottom: 10, color: "white" }}>
-        Upload
-      </Text>
+    <TouchableOpacity style={styles.container} onPress={handleUpload}>
+      <Text style={styles.uploadButton}>Upload</Text>
     </TouchableOpacity>
   );
 };
 
 export default ImageUpload;
+
+const styles = StyleSheet.create({
+  container: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    margin: 20,
+  },
+  uploadButton: {
+    fontSize: 18,
+    marginBottom: 20,
+    color: "#fff",
+  },
+});
